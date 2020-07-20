@@ -16,7 +16,7 @@ try:
 except:
     print('--------------------------------------------------------')
     print('You do not have SummaryWriter in torch.utils.tensorboard')
-    print('This code will run anyway. It is just that the summaries would not be recorded)
+    print('This code will run anyway. It is just that the summaries would not be recorded')
     print('For the summaries to get recorded, install a suitable version of pytorch which has SummaryWriter in torch.utils.tensorboard')
     print('I had torch: 1.5.0+cu101 installed on my machine and it worked fine for me')
     print('--------------------------------------------------------')
