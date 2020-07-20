@@ -9,14 +9,26 @@ from agent import QLearningAgent, RandomActionAgent
 import config as cfg
 from config import display_board
 
-from torch.utils.tensorboard import SummaryWriter
+# it is a little tricky on run SummaryWriter by installing a suitable version of pytorch. so if you are able to import SummaryWriter from torch.utils.tensorboard, this script will record summaries. Otherwise it would not.
+try:
+    from torch.utils.tensorboard import SummaryWriter
+    write_summary = True
+except:
+    print('--------------------------------------------------------')
+    print('You do not have SummaryWriter in torch.utils.tensorboard')
+    print('This code will run anyway. It is just that the summaries would not be recorded)
+    print('For the summaries to get recorded, install a suitable version of pytorch which has SummaryWriter in torch.utils.tensorboard')
+    print('I had torch: 1.5.0+cu101 installed on my machine and it worked fine for me')
+    print('--------------------------------------------------------')
+    write_summary = False
 
 # cfg.summary_dir is the path of the directory where the tensorboard SummaryWriter files are written
 # the directory is removed, if it already exists
-if os.path.exists(cfg.summary_dir):
-    shutil.rmtree(cfg.summary_dir)
+if write_summary:
+    if os.path.exists(cfg.summary_dir):
+        shutil.rmtree(cfg.summary_dir)
 
-writer = SummaryWriter(cfg.summary_dir) # this command automatically creates the directory at cfg.summary_dir
+    writer = SummaryWriter(cfg.summary_dir) # this command automatically creates the directory at cfg.summary_dir
 
 # initializing the TicTacToe environment and 2 QLearningAgent
 env = TicTacToe()
@@ -94,9 +106,10 @@ for i in tqdm(range(episodes)):
         # switch turns
         playerID = not playerID 
 
-    # write tensorboard summaries
-    writer.add_scalar(f'episode_reward/{player1.name}', episode_reward_player1, i)
-    writer.add_scalar(f'episode_reward/{player2.name}', episode_reward_player2, i)
+    if write_summary:
+        # write tensorboard summaries
+        writer.add_scalar(f'episode_reward/{player1.name}', episode_reward_player1, i)
+        writer.add_scalar(f'episode_reward/{player2.name}', episode_reward_player2, i)
 
 # save Q-Tables for both the players
 player1.saveQtable()
