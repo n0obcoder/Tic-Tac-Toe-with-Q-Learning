@@ -10,3 +10,11 @@ Training an agent to learn play Tic-Tac-Toe using Q-Learning
 * numpy     -1.19.0
 * matplotlib-3.1.1  
 * tqdm 
+
+```
+tensorboard --logdir <summary_directory_path>
+```
+or
+```
+tensorboard --logdir summary
+```
