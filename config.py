@@ -1,10 +1,15 @@
 summary_dir = 'summary'
 num_episodes = 500000
-display = False
+display = False # boolean for diplaying/printing the Tic-Tac-Toe board on the terminal. It is suggested to set it to False for training purposes  
 
-epsilon = 0.4
-alpha = 0.3
-gamma = 0.95
+# exploration-exploitation trade-off factor
+epsilon = 0.4  # must be a real number between (0,1)
+
+# learning-rate
+alpha   = 0.3  # must be a real number between (0,1)
+
+# discount-factor
+gamma   = 0.95 # must be a real number between (0,1)
 
 playerX_QLearningAgent_name = 'QLearningAgent_X'
 player0_QLearningAgent_name = 'QLearningAgent_0'
