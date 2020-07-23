@@ -1,7 +1,11 @@
 import sys, os, shutil, pdb, random
 from tqdm import tqdm
+
 def q(text = ''):
-    print(f'>{text}<')
+    '''
+    a function that exits the code after printing a message. used for dubugging purposes
+    '''
+    print(f'>{text}<') # f-strings work only with python3
     sys.exit()
 
 from environment import TicTacToe
@@ -111,6 +115,6 @@ for i in tqdm(range(episodes)):
         writer.add_scalar(f'episode_reward/{player1.name}', episode_reward_player1, i)
         writer.add_scalar(f'episode_reward/{player2.name}', episode_reward_player2, i)
 
-# save Q-Tables for both the players
+# save Q-Tables for both the players. either of these could be used as an opponent by a user.
 player1.saveQtable()
 player2.saveQtable()
