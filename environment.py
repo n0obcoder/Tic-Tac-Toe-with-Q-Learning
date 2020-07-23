@@ -1,5 +1,3 @@
-from agent import QLearningAgent
-
 class TicTacToe:
     def __init__(self):
         '''
