@@ -16,11 +16,11 @@ class RandomActionAgent():
 
 class QLearningAgent:
     def __init__(self, name, epsilon = cfg.epsilon, alpha = cfg.alpha, gamma = cfg.gamma):
-        self.name = name
-        self.epsilon = epsilon
-        self.alpha   = alpha
-        self.gamma   = gamma
-        self.Q       = {} # Q-Table
+        self.name = name       
+        self.epsilon = epsilon # exploration-exploiataion trade-off factor
+        self.alpha   = alpha   # learning-rate
+        self.gamma   = gamma   # discount-factor
+        self.Q       = {}      # Q-Table
         self.last_board = None
         self.state_action_last = None
         self.q_last = 0.0
