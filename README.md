@@ -15,6 +15,7 @@ Training an agent to learn play Tic-Tac-Toe using Q-Learning
 ```
 python main.py
 ```
+This results in 2 QTables namely <b>QLearningAgent_0_QTable</b> and <b>QLearningAgent_X_QTable</b> being saved in the root directory.
 
 ## How to run Tensorboard for Visualization
 ```
@@ -30,6 +31,9 @@ because we <b>"summary"</b> set as the summary_directory_path in <b>config.py</b
 ```
 python play.py
 ```
+This essentially uses the QTables which were saved as a result of running <b>main.py</b>
+<br>
+But you do not necessarily need to run <b>main.py</b> for playing the game against the QLearningAgent because I have already put the QTables in this repository.
 
 ## Result
 
