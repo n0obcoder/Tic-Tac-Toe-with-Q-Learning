@@ -19,13 +19,15 @@ This results in 2 QTables namely <b>QLearningAgent_0_QTable</b> and <b>QLearning
 
 ## How to run Tensorboard for Visualization
 ```
-tensorboard --logdir <summary_directory_path>
+tensorboard --logdir <summary_directory_path> --port=<port_number>
 ```
 or
 ```
 tensorboard --logdir summary
 ```
-because we <b>"summary"</b> set as the summary_directory_path in <b>config.py</b>
+because we have set the summary_directory_path as <b>"summary"</b> in <b>config.py</b>
+<br>
+<b>NOTE: The default port for tensorboard is 6006</b>
 
 ## How to Play TicTocToe Against a QLearning Agent
 ```
